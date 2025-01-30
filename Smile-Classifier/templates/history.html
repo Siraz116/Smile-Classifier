@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Classification History</title></head>
+<body>
+    <h1>Classification History</h1>
+    <table>
+        <tr>
+            <th>Image</th>
+            <th>Classification</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for record in classifications %}
+        <tr>
+            <td><img src="{{ record.image_path }}" width="100"></td>
+            <td>{{ record.classification }}</td>
+            <td>{{ record.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

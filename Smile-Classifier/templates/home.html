@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smile Classifier - AI Emotion Detection</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <nav>
+                <div class="logo">
+                    <!-- <img src="smiling-logo.svg" alt="Smile Classifier Logo"> -->
+                    <h1>Smile Classifier</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="/classify">Classify</a></li>
+                    <li><a href="/history">History</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section id="hero">
+                <div class="hero-content">
+                    <h2>Detect Smiles with AI</h2>
+                    <p>Advanced machine learning to classify facial expressions</p>
+                    <div class="cta-buttons">
+                        <a href="#classify" class="btn btn-primary">Try Now</a>
+                        <a href="#about" class="btn btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <!-- <div class="hero-image">
+                    <img src="ai-smile-detection.svg" alt="AI Smile Detection">
+                </div> -->
+            </section>
+
+            <section id="features">
+                <h3>How It Works</h3>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📷</div>
+                        <h4>Upload Image</h4>
+                        <p>Upload a facial image to our platform</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h4>AI Analysis</h4>
+                        <p>Our model processes and classifies the image</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">😊</div>
+                        <h4>Instant Result</h4>
+                        <p>Get smile classification in seconds</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <h3>About Our Technology</h3>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h4>CNN Classifier</h4>
+                        <p>Our advanced machine learning model uses CNN algorithm to detect smiles with high accuracy. Trained on diverse facial datasets, it provides robust and reliable smile classification.</p>
+                        <ul>
+                            <li>✅ 64x64 Image Preprocessing</li>
+                            <li>✅ Grayscale Conversion</li>
+                            <li>✅ Advanced Feature Extraction</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </section>
+        </main>
+
+    </div>
+    <!-- <script src="script.js"></script> -->
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    // Smooth Scrolling
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            //e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Active Navigation State
+    function setActiveNavLink() {
+        const scrollPosition = window.scrollY;
+        const sections = document.querySelectorAll('section');
+
+        sections.forEach(section => {
+            const top = section.offsetTop - 100;
+            const bottom = top + section.offsetHeight;
+
+            if (scrollPosition >= top && scrollPosition <= bottom) {
+                const id = section.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    window.addEventListener('scroll', setActiveNavLink);
+
+    // Feature Card Hover Effects
+    const featureCards = document.querySelectorAll('.feature-card');
+    
+    featureCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-15px)';
+            card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.1)';
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0)';
+            card.style.boxShadow = 'none';
+        });
+    });
+
+    // CTA Button Interactions
+    const ctaButtons = document.querySelectorAll('.cta-buttons a');
+    
+    ctaButtons.forEach(button => {
+        button.addEventListener('mouseenter', () => {
+            button.style.transform = 'scale(1.05)';
+        });
+
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'scale(1)';
+        });
+    });
+});
+</script>
+</html>
